@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Reservation System</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <style>
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .banner {
+            background: url("https://source.unsplash.com/1600x900/?hotel") no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-size: 24px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <h1>Welcome to RheaMendz Hotel Reservation</h1>
+        <p>Book a comfortable stay with us today.</p>
+    </div>
+
+    <div class="container">
+        <h2>Get Started</h2>
+        <p>Login or Register to book your room.</p>
+        
+        <div class="button-container">
+            <a href="/login" class="btn">Login</a>
+            <a href="/register" class="btn">Register</a>
+        </div>
+    </div>
+
+</body>
+</html>

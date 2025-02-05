@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Admin Panel</h1>
+
+    <h2>Manage Rooms</h2>
+    <form method="POST" action="/add_room">
+        <input type="text" name="room_number" placeholder="Room Number" required>
+        <input type="text" name="room_type" placeholder="Room Type" required>
+        <button type="submit">Add Room</button>
+    </form>
+
+    <h2>Room List</h2>
+    <table border="1">
+        <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Status</th>
+        </tr>
+        {% for room in rooms %}
+        <tr>
+            <td>{{ room[1] }}</td>
+            <td>{{ room[2] }}</td>
+            <td>{{ room[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Manage Users</h2>
+    <table border="1">
+        <tr>
+            <th>Username</th>
+            <th>Action</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[1] }}</td>
+            <td>
+                {% if not user[4] %}
+                <form method="POST" action="{{ url_for('delete_user', user_id=user[0]) }}">
+                    <button type="submit">Delete</button>
+                </form>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br><br>
+    <a href="/dashboard">Back to Dashboard</a>
+    <br>
+    <a href="/logout">Logout</a>
+</body>
+</html>

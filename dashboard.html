@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Available Rooms</h2>
+    <table>
+        <tr>
+            <th>Room Number</th>
+            <th>Action</th>
+        </tr>
+        {% for room in rooms %}
+        <tr>
+            <td>{{ room[1] }}</td>
+            <td><a href="{{ url_for('book', room_id=room[0]) }}">Book</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/logout">Logout</a>
+    <button onclick="window.history.back();">Back</button>
+</body>
+</html>

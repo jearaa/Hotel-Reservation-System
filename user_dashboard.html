@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <h1>Welcome to User Dashboard</h1>
+
+    <h2>Available Rooms</h2>
+    <table border="1">
+        <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Action</th>
+        </tr>
+        {% for room in rooms %}
+        <tr>
+            <td>{{ room[1] }}</td>
+            <td>{{ room[2] }}</td>
+            <td>
+                <form action="/book/{{ room[0] }}" method="post">
+                    <label for="date">Select Date:</label>
+                    <input type="date" name="date" required>
+                    <button type="submit">Book</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Your Reservations</h2>
+    <table border="1">
+        <tr>
+            <th>Room Number</th>
+            <th>Reservation Date</th>
+            <th>Action</th>
+        </tr>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation[1] }}</td>
+            <td>{{ reservation[2] }}</td>
+            <td>
+                <form action="/cancel_reservation/{{ reservation[0] }}" method="post">
+                    <button type="submit">Cancel</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/logout">Logout</a>
+</body>
+</html>
